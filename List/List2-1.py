@@ -1,6 +1,4 @@
 ##색칠하기
-
-
 def makeArray(arr, a, b, c, d, e):
     for i in range(a, c + 1):
         for j in range(b, d + 1):
