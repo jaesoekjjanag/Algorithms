@@ -2,6 +2,9 @@
 # 최대한 적은 수의 봉지
 
 
+from _typeshed import OpenTextModeUpdating
+
+
 def sugar(n):
     five = n // 5
     if n % 5 == 0:
