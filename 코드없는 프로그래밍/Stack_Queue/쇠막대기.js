@@ -1,6 +1,3 @@
-// ()는 레이저
-// (())는 쇠막대기를 레이저로 절단한 것  ((())())
-
 function solution(str) {
   let stack = []
   let sum = 0
