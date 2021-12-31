@@ -6,7 +6,7 @@ class Node:
 
 
 n = int(input())
-tree = [0]*(2*(n+1))
+tree = [0]*(2*n+1)
 
 for i in range(n):
   tree[i] = Node(chr(i+65))
