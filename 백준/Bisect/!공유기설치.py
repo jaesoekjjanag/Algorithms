@@ -14,7 +14,8 @@ start, end = 0, n-1
 placed = [start, end]
 k -= 2
 
-def bisect(start, end, k):
+def bisect(start, end):
+  global k
   if(k > 0):
     midIndex = (start + end)//2
     placed.append(midIndex)
@@ -31,14 +32,15 @@ def bisect(start, end, k):
     rightMinSub = min(houses[end] - right , right-mid)
   
     if(leftMinSub > rightMinSub):
-      bisect(start, midIndex-1, k)
-      bisect(midIndex+1, end, k)
+      bisect(start, midIndex-1)
+      bisect(midIndex+1, end)
     else:
-      bisect(midIndex+1, end, k)
-      bisect(start, midIndex-1, k)
+      bisect(midIndex+1, end)
+      bisect(start, midIndex-1)
 
-bisect(start, end, k)
+bisect(start, end)
 
+print(placed)
 placed.sort()
 
 maxDistance = houses[end]-houses[start]
