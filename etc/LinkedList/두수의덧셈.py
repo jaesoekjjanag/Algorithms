@@ -1,8 +1,5 @@
 # 연결리스트의 역순의 합. 반환 값 역시 역순으로
 
-from asyncio.windows_events import NULL
-
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
