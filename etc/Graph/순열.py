@@ -8,6 +8,7 @@ def solution(nums):
   
   def dfs(nums_left):
     if len(nums_left) == 0:
+      print(perm)
       results.append(perm[:])
     
     for i in nums_left:
