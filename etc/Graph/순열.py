@@ -1,28 +1,27 @@
 # 서로 다른 정수로 가능한 모든 수열
 
-import itertools
-
 def solution(nums):
-  results = []
-  perm = []
-  
-  def dfs(nums_left):
-    if len(nums_left) == 0:
-      results.append(perm[:])
+  def dfs(index, available, path):
+    if index == len(nums):
+      return results.append(path)
     
-    for i in nums_left:
-      perm.append(i)
-      next_nums_left = nums_left[:]
-      next_nums_left.remove(i)
-      dfs(next_nums_left)
-      perm.pop()
+    for i in available:
+      nextAvailable = available[:]
+      nextAvailable.remove(i)
+      dfs(index+1, nextAvailable, path+[i])
   
-  dfs(nums)
+  results = []
+  dfs(0, nums, [])
+    
   return results
+
 print(solution([1,2,3]))
 
-#순열 라이브러리
-def solution2(nums):
-  return list(itertools.permutations(nums))
+# #순열 라이브러리
+# import itertools
 
-print(solution2([1,2,3]))
+# def solution2(nums):
+#   return list(itertools.permutations(nums))
+
+# print(solution2([1,2,3]))
+
