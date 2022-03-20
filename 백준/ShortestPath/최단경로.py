@@ -1,13 +1,13 @@
-import sys
 from collections import defaultdict
 import heapq
 
-V, E = map(int, sys.readline().rstrip().split()) #정점의 수, 간선의 수
-k = int(sys.readline().rstrip()) #시작 정점
+f = open("./ShortestPath/최단경로.txt")
+V, E = map(int, f.readline().rstrip().split()) #정점의 수, 간선의 수
+k = int(f.readline().rstrip()) #시작 정점
 graph = defaultdict(list)
 
 for _ in range(E):
-  u, v, w = map(int, sys.readline().rstrip().split())
+  u, v, w = map(int, f.readline().rstrip().split())
   graph[u].append((v, w))
   
 dist = defaultdict(int)
