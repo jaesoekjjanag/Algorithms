@@ -3,7 +3,6 @@ from collections import deque
 tree = [3, 9, 20, None, None, 15, 7]
 
 # 자식 노드의 index => 2*i + 1, 2*i + 2
-
 def maxDepth(tree):
   q = deque([0])
   depth = 0
