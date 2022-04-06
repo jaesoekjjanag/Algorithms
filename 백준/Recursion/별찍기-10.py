@@ -1,11 +1,10 @@
-n = int(input())
-grid = [[' ']*n for _ in range(n)]
+N = int(input())
+grid = [[' ']*N for _ in range(N)]
 
 def recursion(n, x, y):
   if n == 1:
     return
   
-  global grid
   
   d = int(n/3)
   for i in range(3):
@@ -13,12 +12,13 @@ def recursion(n, x, y):
       if not(i==1 and j==1):
         recursion(d, x+i*d, y+j*d)
         if d==1:
+          global grid
           grid[x+i][y+j] = '*'
   
-recursion(n, 0, 0)
+recursion(N, 0, 0)
 
-for i in range(n):
-  for j in range(n):
+for i in range(N):
+  for j in range(N):
     print(grid[i][j], end='')
   print()
 
