@@ -1,6 +1,3 @@
-# N개의 T와 P가 주어짐. T는 상담의 소요일, P는 받을 수 있는 금액
-# 받을 수 있는 최대 이익
-
 f = open("퇴사2.txt")
 
 n = int(f.readline().rstrip())
