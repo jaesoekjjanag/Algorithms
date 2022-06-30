@@ -15,7 +15,6 @@ operators = {
   '/' : O[3],
 }
 
-
 result = []
 
 def dfs(index, sum):
