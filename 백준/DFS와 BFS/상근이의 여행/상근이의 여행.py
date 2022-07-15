@@ -9,3 +9,4 @@ for _ in range(t):
     a, b = map(int, f.readline().rstrip().split())
 
   print(n-1)
+  
