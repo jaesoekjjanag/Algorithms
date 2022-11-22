@@ -1,3 +1,5 @@
+# 에라토스테네스의 체로 풀이하려 했으나 시간 초과
+
 def dfs(dp, n):
   if dp[int(n)] == 1:
     return False
@@ -24,7 +26,7 @@ def solution(N):
       s += 1
   
   for i in range(int(max_num/10), max_num):
-    # if dfs(dp, str(i)):
-    print(i)
+    if dfs(dp, str(i)):
+      print(i)
   
-solution(8)
+solution(4)
