@@ -43,12 +43,15 @@ function solution(n, paths, gates, summits) {
     graph[i] ? graph[i].push([j, w]) : (graph[i] = [[j, w]]);
   }
 
+  for (let s of summits) {
+    graph[s] = [];
+  }
+
   const intensities = Array(n + 1).fill(Infinity);
-  const answers = new Set();
-  let minIntensity = Infinity;
 
   Q = [];
   let node;
+
   for (let g of gates) {
     Q.push(g);
     intensities[g] = 0;
@@ -56,23 +59,20 @@ function solution(n, paths, gates, summits) {
 
     while (Q.length) {
       node = Q.shift();
-      console.log(node);
       if (visited[node]) continue;
       visited[node] = 1;
       for (let [next, cost] of graph[node]) {
         if (visited[next]) continue;
-        if (intensities[node] > cost) {
-          intensities[next] = intensities[node];
-        } else {
-          intensities[next] = cost;
+        const max = Math.max(intensities[node], cost);
+        if (intensities[next] > max) {
+          intensities[next] = max;
         }
         Q.push(next);
       }
       Q.sort((a, b) => intensities[a] - intensities[b]);
     }
-    console.log(intensities);
   }
-  console.log(summits.map((v) => [v, intensities[v]]));
+
   return summits
     .map((v) => [v, intensities[v]])
     .sort((a, b) => {
@@ -83,37 +83,20 @@ function solution(n, paths, gates, summits) {
     })[0];
 }
 
-// console.log(
-//   solution(
-//     6,
-//     [
-//       [1, 2, 3],
-//       [2, 3, 5],
-//       [2, 4, 2],
-//       [2, 5, 4],
-//       [3, 4, 4],
-//       [4, 5, 3],
-//       [4, 6, 1],
-//       [5, 6, 1],
-//     ],
-//     [1, 3],
-//     [5]
-//   )
-// );
-
 console.log(
   solution(
-    7,
+    6,
     [
-      [1, 2, 5],
-      [1, 4, 1],
-      [2, 3, 1],
-      [2, 6, 7],
-      [4, 5, 1],
+      [1, 2, 3],
+      [2, 3, 5],
+      [2, 4, 2],
+      [2, 5, 4],
+      [3, 4, 4],
+      [4, 5, 3],
+      [4, 6, 1],
       [5, 6, 1],
-      [6, 7, 1],
     ],
-    [3, 7],
-    [1, 5]
+    [1, 3],
+    [5]
   )
 );

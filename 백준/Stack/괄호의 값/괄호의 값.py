@@ -36,8 +36,9 @@ def solution():
         total += temp
       temp //= op[i]
       
-    last = i
-
+    last = i 
+    
+  
   return total  
 
 print(solution())
