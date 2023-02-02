@@ -22,7 +22,7 @@ def dfs(i, eggs):
   
   allBroken = 1
   for j in range(length):
-    if(j== i and eggs[j][0] < 0): continue
+    if(j== i or eggs[j][0] < 0): continue
     
     allBroken = 0
     [s, w] = eggs[j]
@@ -35,6 +35,7 @@ def dfs(i, eggs):
 
   if(allBroken):
     dfs(length, eggs)
+    
 dfs(0, eggs)
 
 print(answer)
