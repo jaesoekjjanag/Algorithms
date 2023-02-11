@@ -31,8 +31,7 @@ function search(target, left) {
       while (left < right && participants[++left] == lValue) {
         lCount++;
       }
-      while (left < right && participants[right - 1] == rValue) {
-        right--;
+      while (left < right+1 && participants[--right] == rValue) {
         rCount++;
       }
 

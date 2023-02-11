@@ -9,7 +9,30 @@ const liqs = input[1]
   .sort((a, b) => a - b);
 
 let feat = 3000000000;
-let target;
+
+function twoPointer(target, i) {
+  let left = i + 1;
+  let right = N - 1;
+
+  while (left < right) {
+    let total = target + liqs[left] + liqs[right];
+
+    if (feat > Math.abs(total)) {
+      feat = Math.abs(total);
+      answer = [target, liqs[left], liqs[right]];
+    }
+
+    if (total > 0) {
+      right -= 1;
+    } else {
+      left += 1;
+    }
+  }
+}
+
+liqs.forEach((x, i) => twoPointer(x, i));
+console.log(answer.join(" "));
+
 
 // for (let i = 0; i < N - 2; ++i) {
 //   for (let j = i + 1; j < N - 1; ++j) {
@@ -45,25 +68,4 @@ let target;
 //   return index;
 // }
 
-function twoPointer(target, i) {
-  let left = i + 1;
-  let right = N - 1;
 
-  while (left < right) {
-    let total = target + liqs[left] + liqs[right];
-
-    if (feat > Math.abs(total)) {
-      feat = Math.abs(total);
-      answer = [target, liqs[left], liqs[right]];
-    }
-
-    if (total > 0) {
-      right -= 1;
-    } else {
-      left += 1;
-    }
-  }
-}
-
-liqs.forEach((x, i) => twoPointer(x, i));
-console.log(answer.join(" "));
