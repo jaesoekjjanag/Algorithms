@@ -15,8 +15,9 @@ function bisect(t, arr) {
   while (left <= right) {
     mid = Math.floor((left + right) / 2);
     cur = arr[mid];
+
     if (cur === t) return mid;
-    if (cur > t) right = mid;
+    if (cur > t) right = mid - 1;
     if (cur < t) left = mid + 1;
   }
 }

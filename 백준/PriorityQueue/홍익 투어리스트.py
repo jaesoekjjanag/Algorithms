@@ -7,7 +7,7 @@ ip = f.readline;
 N, Q = map(int, ip().split())
 areas = list(map(int, ip().split()))
 
-hot_places = set([i for i, v in enumerate(areas) if v == 1])
+hot_places = [i for i, v in enumerate(areas) if v == 1]
 
 location = 0 
 
@@ -18,7 +18,7 @@ for _ in range(Q):
     if(areas[i]==1):
       hot_places.remove(i)
     else:
-      hot_places.add(i)
+      hot_places.append(i)
       
     areas[i] = 1-areas[i]
   
@@ -29,9 +29,9 @@ for _ in range(Q):
     if(not hot_places):
       print(-1)
     else:    
-      h = list(hot_places)
-      i = bisect.bisect_left(h, location)
+      hot_places.sort()
+      i = bisect.bisect_left(hot_places, location)
       if(i == len(hot_places)):
-        print(h[0] + N - location)
+        print(hot_places[0] + N - location)
       else:
-        print(h[i] - location)
+        print(hot_places[i] - location)
