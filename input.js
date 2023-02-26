@@ -20,4 +20,3 @@ solution(inputC, inputTestCase);
 function solution(C, testCase) {
   //알고리즘
 }
-
