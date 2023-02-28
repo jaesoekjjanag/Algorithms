@@ -1,11 +1,31 @@
 from collections import defaultdict, deque
 from sys import stdin
 
-f = open('./환승.txt')
-ip = f.readline
-# ip = stdin.readline
+# f = open('./환승.txt')
+ip = stdin.readline
 
 n, k, m = map(int, ip().split())
+
+# 메모리 초과
+# graph = defaultdict(set)
+# dist = [float("inf")] * (n+1)
+# dist[1] = 0
+
+# for _ in range(m):
+#   linked = list(map(int, ip().split()))
+#   for v in linked:
+#     for f in filter(lambda x: x != v, linked):
+#       graph[v].add(f)
+
+# Q = deque([1])
+# while(Q):
+#   cur = Q.popleft()
+#   for nxt in graph[cur]:
+#     if(dist[nxt] > dist[cur] + 1):
+#       dist[nxt] = dist[cur] + 1
+#       Q.append(nxt)
+
+# print(dist[n] + 1)
 
 station = defaultdict(list)
 dist = [float("inf")] * (n+1)
@@ -34,4 +54,4 @@ while(Q):
         Q.append(s)
         dist[s] = dist[cur] + 1
         
-print(- 1 if dist[n] == float('inf') else dist[n] + 1 )
+print(-1 if dist[n] == float('inf') else dist[n] + 1 )
