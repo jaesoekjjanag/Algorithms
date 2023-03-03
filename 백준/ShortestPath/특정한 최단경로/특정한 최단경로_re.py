@@ -1,12 +1,9 @@
 import sys
 from heapq import heappop, heappush 
 
-# f = open('./input.txt')
-# ip = f.readline
 ip = sys.stdin.readline
 
 n, e = map(int, ip().split())
-
 graph = [[] for _ in range(n+1)]
 
 for _ in range(e):
