@@ -40,10 +40,10 @@ for i in range(1,n+1):
       print(graph[i][j], end=' ')
   print()
 
-      if i == j:
-        graph[i][j] = 0
-      else:
-        graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
+  if i == j:
+    graph[i][j] = 0
+  else:
+    graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
 
 for i in range(1,n+1):
   for j in range(1,n+1):
