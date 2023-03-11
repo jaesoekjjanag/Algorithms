@@ -42,27 +42,27 @@ answer = getFarthestNode(node1)[1]
 print(answer)
 
 # dfs를 이용한 방식: 메모리 초과
-# from itertools import combinations
+from itertools import combinations
 
-# def dfs(node, visited):
-#   global answer
+def dfs(node, visited):
+  global answer
   
-#   visited[node] = 1
-#   max_dist = 0
-#   sub_lens = []
-#   for dist, children in tree[node]:
-#     if(visited[children]): continue
-#     sub_len = dist + dfs(children, visited)
+  visited[node] = 1
+  max_dist = 0
+  sub_lens = []
+  for dist, children in tree[node]:
+    if(visited[children]): continue
+    sub_len = dist + dfs(children, visited)
     
-#     sub_lens.append(sub_len)
-#     max_dist = max(max_dist, sub_len)
+    sub_lens.append(sub_len)
+    max_dist = max(max_dist, sub_len)
 
-#   if(len(sub_lens) > 1):
-#     answer = max(answer, max(map(lambda x:sum(x), list(combinations(sub_lens, 2)))))
-#   else:
-#     answer = max(answer, max_dist)    
+  if(len(sub_lens) > 1):
+    answer = max(answer, max(map(lambda x:sum(x), list(combinations(sub_lens, 2)))))
+  else:
+    answer = max(answer, max_dist)    
     
-#   return max_dist
+  return max_dist
 
-# dfs(root, [0]*(v+1))
-# print(answer)
+dfs(root, [0]*(v+1))
+print(answer)
