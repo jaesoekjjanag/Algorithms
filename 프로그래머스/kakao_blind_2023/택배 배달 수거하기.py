@@ -32,3 +32,5 @@ def solution(cap, n, deliveries, pickups):
                         
     
     return answer*2
+
+solution()
