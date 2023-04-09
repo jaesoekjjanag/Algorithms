@@ -77,7 +77,6 @@ for _ in range(k):
       print(trees)
     if(s == 3):
       winter(nourish, A)
-    
       
 print(len(trees), trees)
 

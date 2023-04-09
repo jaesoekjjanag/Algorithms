@@ -24,6 +24,6 @@ while 1:
     answer += 1
     
     if belt.count(0) == k:
-      break
+        break
                 
 print(answer)
