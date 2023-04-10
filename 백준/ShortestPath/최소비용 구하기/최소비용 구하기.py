@@ -22,6 +22,8 @@ def djikstra(start, dest):
   while(q):
     cost, node = heappop(q)
     
+    if(dist[node] < cost): continue
+    
     for nxt_cost, nxt_node in graph[node]:
       nxt_cost = cost + nxt_cost
       if(nxt_cost < dist[nxt_node]):
